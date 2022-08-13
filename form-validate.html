@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../animation-testing/node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<style>
+  
+</style>
+<body class=" d-flex justify-content-center">
+    <div class="container text-center">
+        <h1>Calculator</h1>
+
+        <div class="w-50  d-flex mb-4 mx-auto">
+            <input type="text" class=" form-control" id="a">
+            <label for="a" class="fw-bold text-danger ms-2 d-none">Please fill correct number</label>
+        </div>
+     
+        <div class="w-50  d-flex mx-auto">
+            <input type="text" class=" form-control" id="b">
+            <label for="b" class="fw-bold text-danger ms-2 d-none">Please fill correct number</label>
+        </div>
+        
+        <button class="btn btn-primary mt-3">Calculate</button>
+        <div id="result"></div>
+
+    </div>
+  
+
+<script>
+let btn = document.querySelector(".btn");
+let atag = document.querySelector("#a");
+let alabel = document.querySelector("[for=a]");
+let btag = document.querySelector("#b");
+let blabel = document.querySelector("[for=b]");
+
+
+atag.addEventListener("keyup",() => {
+    let a = document.querySelector("#a").value;
+    
+    if(isNaN(a)){
+        alabel.classList.remove("d-none");
+    }else{
+        alabel.classList.add("d-none");
+    }
+})
+
+btag.addEventListener("keyup",() => {
+    let b = document.querySelector("#b").value;
+    
+    if(isNaN(b)){
+        blabel.classList.remove("d-none");
+    }else{
+        blabel.classList.add("d-none");
+    }
+})
+
+btn.addEventListener("click",() => {
+    let a = parseInt(document.querySelector("#a").value);
+    let b = parseInt(document.querySelector("#b").value);
+
+    let result = a+b;
+    if(!isNaN(result)){
+    
+        document.querySelector("#result").textContent = result;
+       
+    }
+})
+
+
+
+
+    
+</script>
+
+</body>
+</html>

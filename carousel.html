@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../animation-testing/node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+
+    <style>
+
+        .boxes{
+            width: 800px;
+            margin: 20px auto;
+            text-align: center;
+
+        }
+
+        .box{
+            
+            height: 200px;
+            
+        }
+
+        #box1{
+            background-color: red;
+        }
+
+
+        #box2{
+            background-color: green;
+            display: none;
+        }
+
+
+        #box3{
+            background-color: blue;
+            display: none;
+        }
+
+    </style>
+</head>
+
+
+<body>
+    
+        <div class="boxes">
+            <div class="box" id="box1"></div>
+            <div class="box" id="box2"></div>
+            <div class="box" id="box3"></div>
+    
+        </div>
+    
+    <div class="text-center">
+        <div class="btn btn-primary btn-lg" id="prev">Prev</div>
+        <div class="btn btn-primary btn-lg" id="next">Next</div>
+    </div>
+
+    <script>
+        // let box1 = document.querySelector("#box1");
+        // let box2 = document.querySelector("#box2");
+        // let box3 = document.querySelector("#box3");
+        let boxTag = document.querySelectorAll(".box");
+        let prevBtn = document.querySelector("#prev");
+        let nextBtn = document.querySelector("#next");
+
+        let index = 0;
+
+        let boxes = [...boxTag];
+        
+
+        let next = () => {
+            boxes[index].style.display = "none";
+            index++;
+            if(index === boxes.length) index = 0;
+            boxes[index].style.display = "block";
+        }
+
+        let prev = () => {
+            boxes[index].style.display = "none";
+            index--;
+            if(index < 0) {
+                index = 2;
+               
+            }
+            boxes[index].style.display = "block";
+        }
+
+        nextBtn.addEventListener("click",() => {
+            next();
+        })
+
+        prevBtn.addEventListener("click",() => {
+            prev();
+        })
+
+        setInterval(next,5000);
+    </script>
+</body>
+</html>
