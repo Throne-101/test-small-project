@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box{
+            width: 800px;
+            height: 30px;
+            padding:10px;
+            background-color: blue;
+            position: relative;
+            
+        }
+
+        .ball{
+
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="ball"></div>
+    </div>
+
+    <div>
+        <button class="start">Start</button>
+        <button class="stop">Stop</button>
+    </div>
+
+    <script>
+        let boxTag = document.querySelector(".box");
+        let ballTag = document.querySelector(".ball");
+
+        let left = 0;
+        let direction = "right";
+        
+        let move = () => {
+            if(direction === "right"){
+                left +=1;
+                if(left > 790) direction = "left";
+            }else{
+                left -=1;
+                if(left < 1) direction = "right";
+            }
+            
+            ballTag.style.left = `${left}px`;
+        }
+
+        let interval = setInterval(move,10);
+
+        document.querySelector(".start").addEventListener("click",() => {
+            clearInterval(interval);
+           interval = setInterval(move,10);
+        })
+        
+        document.querySelector(".stop").addEventListener("click",() => clearInterval(interval));
+
+    </script>
+</body>
+</html>
