@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+        }
+
+        body{
+            margin: 8px;
+        }
+
+        .bar{
+            margin-top: 10px;
+            display: flex;
+            background-color: cadetblue;
+            padding:10px 10px 0px 10px;
+            list-style: none;
+        }
+
+        .tab{
+            padding:7px 40px;
+            background-color: white;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .content{
+            border:1px solid cadetblue;
+            min-height: 200px;
+            border-top: none;
+            padding: 20px;
+        }
+
+        .tab-show{
+            opacity: 1;
+        }
+
+      
+    </style>
+</head>
+<body>
+    <ul class="bar">
+      <li class="tab" id="tab-one">Tab One</li>
+      <li class="tab" id="tab-two" style=" opacity: 0.5;">Tab Two</li>
+    </ul>
+
+    <div class="content" id="content1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum voluptates, non eum hic architecto adipisci animi beatae dolores. Veritatis veniam quaerat voluptatem vel repellat, quod asperiores porro eius ducimus commodi.
+    </div>
+
+    <div class="content" id="content2" style="display: none;">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid minus quaerat dolorum earum, fuga velit porro incidunt quidem necessitatibus! Pariatur dolorem, at id voluptatibus totam recusandae maiores suscipit tempora veniam!
+    </div>
+    
+    <script>
+        document.querySelector("#tab-two").onclick = () => {
+            document.querySelector("#tab-one").style.opacity = "0.5";
+            document.querySelector("#tab-two").style.opacity = "1";
+
+            document.querySelector("#content1").style.display = "none";
+            document.querySelector("#content2").style.display = "block";
+            
+        }
+
+        document.querySelector("#tab-one").onclick = () => {
+            document.querySelector("#tab-one").style.opacity = "1";
+            document.querySelector("#tab-two").style.opacity = "0.5";
+
+            document.querySelector("#content1").style.display = "block";
+            document.querySelector("#content2").style.display = "none";
+        }
+
+        
+    </script>
+</body>
+</html>
