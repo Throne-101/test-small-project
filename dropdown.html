@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .menu{
+            width: 200px;
+            border: 1px solid black;
+            margin-top: 10px;
+            display: none;
+          
+        }
+
+        .menu a{
+            text-decoration: none;
+            display:block;
+            padding:10px 15px;
+            border-bottom: 1px solid black;
+            font-size: 1rem;
+            
+        }
+
+        .toggle{
+            text-decoration: none;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dropdown Menu</h1>
+    <div class="dropdown">
+        <a href="#" class="toggle">Dropdown Menu ▾</a>
+        <div class="menu">
+            <a href="#">Item One</a>
+            <a href="#">Item Two</a>
+            <a href="#">Item Three</a>
+        </div>
+    </div>
+    <script>
+        let toggle = document.querySelector(".toggle");
+        let menu = document.querySelector(".menu");
+
+        // toggle.addEventListener("click",() => {
+        //     if(menu.style.display === "none"){
+        //         menu.style.display = "block";
+        //     }else{
+        //         menu.style.display = "none";
+        //     }
+        // })
+
+        toggle.addEventListener("click",() => {
+            if(menu.style.display === "block"){
+                menu.style.display = "none";
+            }else{
+                menu.style.display = "block";
+            }
+        })
+
+
+
+		
+    
+    </script>
+</body>
+</html>
